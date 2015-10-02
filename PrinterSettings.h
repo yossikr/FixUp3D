@@ -29,6 +29,7 @@
 #define IDC_BUTTON_PRINT_AGAIN	0x403
 #define IDC_BUTTON_IMPORT		0x404
 #define IDC_BUTTON_EXPORT		0x405
+//#define IDC_BUTTON_MINIMIZE		0x406
 
 #define IDC_TAB_PRINTER_SETS	0x501
 
@@ -91,6 +92,7 @@ private:
 	HWND							hEditHeaterTemp3;
 	HWND							hLabelPreheatTime;
 	HWND							hEditPreheatTime;
+//	HWND							hButtonMinimize;
 	HWND							hButtonImport;
 	HWND							hButtonExport;
 	HWND							hButtonSetTemp;

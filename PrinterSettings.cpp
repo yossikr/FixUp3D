@@ -68,7 +68,7 @@ PrinterSettings::PrinterSettings(HINSTANCE hInstance) {
 	hLabelPreheatTime = NULL;
 	hEditPreheatTime = NULL;
 	hButtonImport = NULL;
-//	hButtonMinimize = NULL;
+	hButtonMinimize = NULL;
 	hButtonExport = NULL;
 	hButtonSetTemp = NULL;
 	hButtonSendGcode = NULL;
@@ -134,7 +134,7 @@ LRESULT PrinterSettings::handleWndMessage(HWND hWnd, UINT message, WPARAM wParam
 			hEditHeaterTemp3 = CreateWindow("Edit", "0", WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP, 348, 32, 80, 22, hWnd, (HMENU)IDC_INPUT_HEATER_TEMP3, hInstDll, 0);
 			hLabelPreheatTime = CreateWindow("Static", "Preheat Timer (Min)", WS_CHILD|WS_VISIBLE, 4, 60, 160, 22, hWnd, (HMENU)IDC_LABEL_PREHEAT_TIME, hInstDll, 0);
 			hEditPreheatTime = CreateWindow("Edit", "0", WS_BORDER|WS_CHILD|WS_VISIBLE|WS_TABSTOP, 172, 60, 80, 22, hWnd, (HMENU)IDC_INPUT_PREHEAT_TIME, hInstDll, 0);
-			//hButtonMinimize = CreateWindow("Button", "Minimize", WS_CHILD|WS_VISIBLE|WS_TABSTOP, 4, 4, 100, 22, hWnd, (HMENU)IDC_BUTTON_MINIMIZE, hInstDll, 0);
+			hButtonMinimize = CreateWindow("Button", "Minimize", WS_CHILD|WS_VISIBLE|WS_TABSTOP, 4, 4, 100, 22, hWnd, (HMENU)IDC_BUTTON_MINIMIZE, hInstDll, 0);
 			hButtonImport = CreateWindow("Button", "Import config", WS_CHILD|WS_VISIBLE|WS_TABSTOP, 4, 88, 100, 22, hWnd, (HMENU)IDC_BUTTON_IMPORT, hInstDll, 0);
 			hButtonExport = CreateWindow("Button", "Export config", WS_CHILD|WS_VISIBLE|WS_TABSTOP, 108, 88, 100, 22, hWnd, (HMENU)IDC_BUTTON_EXPORT, hInstDll, 0);
 			hButtonSendGcode = CreateWindow("Button", "Send Gcode", WS_CHILD|WS_VISIBLE|WS_TABSTOP, 212, 88, 80, 22, hWnd, (HMENU)IDC_BUTTON_SEND_GCODE, hInstDll, 0);
@@ -240,9 +240,9 @@ LRESULT PrinterSettings::handleWndMessage(HWND hWnd, UINT message, WPARAM wParam
 			MessageBox(NULL, debug, "FixUp3D", NULL);
 			*/
 			if (HIWORD(wParam) == BN_CLICKED) {
-//				if (LOWORD(wParam) == IDC_BUTTON_MINIMIZE) {
-//					ShowWindow(hWnd, SW_MINIMIZE);
-//				}
+				if (LOWORD(wParam) == IDC_BUTTON_MINIMIZE) {
+					ShowWindow(hWnd, SW_MINIMIZE);
+				}
 
 				if (LOWORD(wParam) == IDC_BUTTON_IMPORT) {
 					OPENFILENAME	fileOpenStruct;
